@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { PessoaListComponent } from './pessoa/pessoa-list.component';
 import { PessoaAddComponent } from './pessoa/pessoa-add.component';
 import { AppRoutingModule } from './app-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

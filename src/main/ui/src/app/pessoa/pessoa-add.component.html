@@ -1,1 +1,16 @@
-<p>pessoa-add works!</p>
+<div>
+  <form name="pessoaForm" (ngSubmit)="save()" [formGroup]="pessoaForm">
+    <h2>Adicionar Pessoa</h2>
+    <div>
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" formControlName="nome">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" formControlName="email">
+    </div>
+    <div>
+      <button type="submit">Salvar</button>
+    </div>
+  </form>
+</div>

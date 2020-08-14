@@ -12,6 +12,7 @@ import java.net.URISyntaxException;
 
 @RestController
 @RequestMapping("/api/pessoas")
+@CrossOrigin()
 public class PessoaController {
 
     private PessoaRepository pessoaRepository;

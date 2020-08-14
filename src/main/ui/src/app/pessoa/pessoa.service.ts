@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
 export class PessoaService {
 
 
-  apiUrl = 'localhost:8080/api/pessoas';
+  apiUrl = 'http://localhost:8080/api/pessoas';
 
   constructor(protected http: HttpClient) {
   }

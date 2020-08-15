@@ -9,8 +9,32 @@
       <label for="email">Email</label>
       <input type="text" id="email" name="email" formControlName="email">
     </div>
-    <div>
-      <button type="submit">Salvar</button>
+    <div formGroupName="endereco">
+      <div>
+        <label for="logradouro">Logradouro</label>
+        <input type="text" id="logradouro" name="logradouro" formControlName="logradouro">
+      </div>
+      <div>
+        <label for="numero">Numero</label>
+        <input type="text" id="numero" name="numero" formControlName="numero">
+      </div>
+      <div>
+        <label for="bairro">Bairro</label>
+        <input type="text" id="bairro" name="bairro" formControlName="bairro">
+      </div>
+      <div>
+        <label for="cep">Cep</label>
+        <input type="text" id="cep" name="cep" formControlName="cep">
+      </div>
+      <div>
+        <label for="estado">Estado</label>
+        <input type="text" id="estado" name="estado" formControlName="estado">
+      </div>
+      <div>
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" name="cidade" formControlName="cidade">
+      </div>
     </div>
+    <button type="submit">Salvar</button>
   </form>
 </div>

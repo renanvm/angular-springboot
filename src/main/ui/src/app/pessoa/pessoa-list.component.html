@@ -1,11 +1,16 @@
-<div>
-  <h2>Lista de pessoas</h2>
-  <table>
+<div class="ml-3">
+  <table class="table table-striped">
     <thead>
     <tr>
-      <th>Id</th>
-      <th>Nome</th>
-      <th>Email</th>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Logradouro</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Bairro</th>
+      <th scope="col">Cep</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Cidade</th>
     </tr>
     </thead>
     <tbody>
@@ -13,7 +18,12 @@
       <td>{{ pessoa.id }}</td>
       <td>{{ pessoa.nome }}</td>
       <td>{{ pessoa.email }}</td>
-      <td>
+      <td>{{ pessoa.enderecos[0].logradouro }}</td>
+      <td>{{ pessoa.enderecos[0].numero }}</td>
+      <td>{{ pessoa.enderecos[0].bairro }}</td>
+      <td>{{ pessoa.enderecos[0].cep }}</td>
+      <td>{{ pessoa.enderecos[0].estado }}</td>
+      <td>{{ pessoa.enderecos[0].cidade }}</td>
     </tr>
     </tbody>
   </table>

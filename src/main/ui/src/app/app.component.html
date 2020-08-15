@@ -1,12 +1,13 @@
-<div>
+<div class="container">
   <h1>Cadastro de pessoas</h1>
-  <nav>
-    <div>
-      <ul>
-        <li><a routerLink="/pessoa-list" routerLinkActive="active">Listar Pessoas</a></li>
-        <li><a routerLink="/pessoa-add" routerLinkActive="active">Adicionar Pessoa</a></li>
-      </ul>
-    </div>
-  </nav><br>
-  <router-outlet></router-outlet>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active"  routerLink="/pessoa-list">Listar Pessoas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active"  routerLink="/pessoa-add">Adicionar Pessoa</a>
+    </li>
+  </ul>
+  <br>
+    <router-outlet></router-outlet>
 </div>

@@ -1,1 +1,20 @@
-<p>pessoa-list works!</p>
+<div>
+  <h2>Lista de pessoas</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pessoa of pessoas">
+      <td>{{ pessoa.id }}</td>
+      <td>{{ pessoa.nome }}</td>
+      <td>{{ pessoa.email }}</td>
+      <td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.renan</groupId>
-	<artifactId>challenge</artifactId>
+	<artifactId>pessoa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>challenge</name>
-	<description>InfoPrice FullStack Challenge</description>
+	<name>pessoa</name>
+	<description>Pessoa Application</description>
 
 	<properties>
 		<java.version>11</java.version>

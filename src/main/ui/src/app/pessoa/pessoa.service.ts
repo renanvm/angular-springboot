@@ -22,4 +22,8 @@ export class PessoaService {
     return this.http.get<Pessoa[]>(this.apiUrl);
   }
 
+  removePessoa(pessoaId:number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${pessoaId}`);
+  }
+
 }

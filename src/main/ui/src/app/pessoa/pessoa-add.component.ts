@@ -26,6 +26,8 @@ export class PessoaAddComponent implements OnInit {
     }),
   });
 
+  showAlert:boolean;
+
   constructor(private pessoaService: PessoaService, private fb: FormBuilder) {
   }
 
@@ -60,7 +62,10 @@ export class PessoaAddComponent implements OnInit {
     const endereco = this.createEnderecoFromForm();
     pessoa.enderecos.push(endereco);
     this.pessoaService.create(pessoa).subscribe(res => {
-      console.log(res);
+      this.showAlert = true;
+      setTimeout(()=> {
+        this.showAlert = false;
+      },3000)
     });
   }
 

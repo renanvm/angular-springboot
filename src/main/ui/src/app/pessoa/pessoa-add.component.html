@@ -1,4 +1,9 @@
 <div class="ml-3">
+  <div>
+    <div *ngIf="showAlert" class="alert alert-success" role="alert">
+     Pessoa cadastrada com sucesso!
+    </div>
+  </div>
   <form name="pessoaForm" (ngSubmit)="save()" [formGroup]="pessoaForm">
     <div class="form-group row">
       <label class="col-sm-1 col-form-label" for="nome">Nome</label>

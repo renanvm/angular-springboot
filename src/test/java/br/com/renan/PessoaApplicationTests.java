@@ -1,8 +1,8 @@
-package br.com.renan.challenge;
+package br.com.renan;
 
-import br.com.renan.challenge.controller.PessoaController;
-import br.com.renan.challenge.domain.Pessoa;
-import br.com.renan.challenge.repository.PessoaRepository;
+import br.com.renan.controller.PessoaController;
+import br.com.renan.domain.Pessoa;
+import br.com.renan.repository.PessoaRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
-class ChallengeApplicationTests {
+class PessoaApplicationTests {
 
     @Autowired
     private PessoaRepository pessoaRepository;

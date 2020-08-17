@@ -1,7 +1,7 @@
-package br.com.renan.challenge.controller;
+package br.com.renan.controller;
 
-import br.com.renan.challenge.domain.Pessoa;
-import br.com.renan.challenge.repository.PessoaRepository;
+import br.com.renan.domain.Pessoa;
+import br.com.renan.repository.PessoaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

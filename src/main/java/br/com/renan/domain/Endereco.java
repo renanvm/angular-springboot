@@ -1,4 +1,4 @@
-package br.com.renan.challenge.domain;
+package br.com.renan.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

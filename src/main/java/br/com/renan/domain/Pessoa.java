@@ -1,4 +1,4 @@
-package br.com.renan.challenge.domain;
+package br.com.renan.domain;
 
 import javax.persistence.*;
 import java.util.List;

@@ -1,6 +1,6 @@
-package br.com.renan.challenge.repository;
+package br.com.renan.repository;
 
-import br.com.renan.challenge.domain.Endereco;
+import br.com.renan.domain.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

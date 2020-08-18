@@ -29,7 +29,7 @@ export class PessoaService {
     return this.http.get<Pessoa>(`${this.apiUrl}/${id}`);
   }
 
-  removePessoa(id: number): Observable<any> {
+  remove(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 

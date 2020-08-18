@@ -22,7 +22,7 @@ export class PessoaListComponent implements OnInit {
   }
 
   removePessoa(pessoaId: any) {
-    this.pessoaService.removePessoa(pessoaId).subscribe(() => {
+    this.pessoaService.remove(pessoaId).subscribe(() => {
       this.showAlert();
       this.pessoaService.getAll().subscribe(res => {
         this.pessoas = res;

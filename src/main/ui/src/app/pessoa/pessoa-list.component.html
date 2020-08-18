@@ -29,8 +29,8 @@
         <td>{{ pessoa.enderecos[0].cep }}</td>
         <td>{{ pessoa.enderecos[0].estado }}</td>
         <td>{{ pessoa.enderecos[0].cidade }}</td>
-        <td><button class="btn-danger" (click)="removePessoa(pessoa.id)">Excluir</button></td>
-        <td><button class="btn-primary" [routerLink]="['/pessoa-update', pessoa.id]">Editar</button></td>
+        <td><button class="btn btn-danger" (click)="removePessoa(pessoa.id)">Excluir</button></td>
+        <td><button class="btn btn-primary" [routerLink]="['/pessoa-update', pessoa.id]">Editar</button></td>
       </tr>
     </tbody>
   </table>

@@ -1,4 +1,7 @@
 <div class="ml-3">
+  <div *ngIf="alert" class="alert alert-success" role="alert">
+    Pessoa removida com sucesso!
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -11,6 +14,7 @@
         <th scope="col">Cep</th>
         <th scope="col">Estado</th>
         <th scope="col">Cidade</th>
+        <th scope="col"></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -26,6 +30,7 @@
         <td>{{ pessoa.enderecos[0].estado }}</td>
         <td>{{ pessoa.enderecos[0].cidade }}</td>
         <td><button class="btn-danger" (click)="removePessoa(pessoa.id)">Excluir</button></td>
+        <td><button class="btn-primary" [routerLink]="['/pessoa-update', pessoa.id]">Editar</button></td>
       </tr>
     </tbody>
   </table>

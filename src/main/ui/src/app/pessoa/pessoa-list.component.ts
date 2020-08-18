@@ -10,6 +10,7 @@ import { PessoaService } from './pessoa.service';
 export class PessoaListComponent implements OnInit {
 
   pessoas: Pessoa[];
+  alert: boolean;
 
   constructor(private pessoaService: PessoaService) {
   }
@@ -22,10 +23,18 @@ export class PessoaListComponent implements OnInit {
 
   removePessoa(pessoaId: any) {
     this.pessoaService.removePessoa(pessoaId).subscribe(() => {
+      this.showAlert();
       this.pessoaService.getAll().subscribe(res => {
         this.pessoas = res;
       });
     });
+  }
+
+  showAlert() {
+    this.alert = true;
+    setTimeout(() => {
+      this.alert = false;
+    }, 3000);
   }
 
 }

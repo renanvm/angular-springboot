@@ -1,10 +1,14 @@
 <div class="ml-3">
-  <div>
-    <div *ngIf="showAlert" class="alert alert-success" role="alert">
-     Pessoa cadastrada com sucesso!
-    </div>
+  <div *ngIf="alert" class="alert alert-success" role="alert">
+    {{msgAlert}}
   </div>
   <form name="pessoaForm" (ngSubmit)="save()" [formGroup]="pessoaForm">
+    <div class="form-group row" [hidden]="!pessoaForm.get('id').value">
+      <label class="col-sm-1 col-form-label" for="id">ID</label>
+      <div class="col-2">
+        <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+      </div>
+    </div>
     <div class="form-group row">
       <label class="col-sm-1 col-form-label" for="nome">Nome</label>
       <div class="col-2">

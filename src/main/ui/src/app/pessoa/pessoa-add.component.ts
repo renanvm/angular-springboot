@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
-import {PessoaService} from './pessoa.service';
-import {Pessoa} from '../model/pessoa';
-import {Endereco} from '../model/endereco';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { PessoaService } from './pessoa.service';
+import { Pessoa } from '../model/pessoa';
+import { Endereco } from '../model/endereco';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pessoa-add',
@@ -26,12 +27,16 @@ export class PessoaAddComponent implements OnInit {
     }),
   });
 
-  showAlert:boolean;
+  alert: boolean;
+  msgAlert: string;
 
-  constructor(private pessoaService: PessoaService, private fb: FormBuilder) {
+  constructor(private pessoaService: PessoaService, private fb: FormBuilder, protected activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe(({ pessoa }) => {
+      this.updateForm(pessoa);
+    });
   }
 
   private createFromPessoaForm(): Pessoa {
@@ -57,16 +62,44 @@ export class PessoaAddComponent implements OnInit {
     };
   }
 
+  updateForm(pessoa: Pessoa) {
+    this.pessoaForm.patchValue({
+      id: pessoa.id,
+      nome: pessoa.nome,
+      email: pessoa.email,
+      endereco: {
+        id: pessoa.enderecos[0].id,
+        logradouro: pessoa.enderecos[0].logradouro,
+        numero: pessoa.enderecos[0].numero,
+        bairro: pessoa.enderecos[0].bairro,
+        cep: pessoa.enderecos[0].cep,
+        estado: pessoa.enderecos[0].estado,
+        cidade: pessoa.enderecos[0].cidade,
+      }
+    });
+  }
+
   public save(): any {
     const pessoa = this.createFromPessoaForm();
     const endereco = this.createEnderecoFromForm();
     pessoa.enderecos.push(endereco);
-    this.pessoaService.create(pessoa).subscribe(res => {
-      this.showAlert = true;
-      setTimeout(()=> {
-        this.showAlert = false;
-      },3000)
-    });
+    if (pessoa.id) {
+      this.pessoaService.update(pessoa).subscribe(res => {
+        this.showAlert("Pessoa atualizada com sucesso!");
+      });
+    } else {
+      this.pessoaService.create(pessoa).subscribe(res => {
+        this.showAlert("Pessoa cadastrada com sucesso!")
+      });
+    }
   }
 
+
+  showAlert(message: string) {
+    this.msgAlert = message;
+    this.alert = true;
+    setTimeout(() => {
+      this.alert = false;
+    }, 3000);
+  }
 }

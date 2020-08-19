@@ -21,46 +21,68 @@
         <input class="form-control" type="text" id="email" name="email" formControlName="email">
       </div>
     </div>
+    <hr>
     <div formGroupName="endereco">
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label" for="logradouro">Logradouro</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" id="logradouro" name="logradouro" formControlName="logradouro">
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group row">
+            <label class="col col-form-label" for="logradouro">Logradouro</label>
+            <div class="col">
+              <input class="form-control" type="text" id="logradouro" name="logradouro" formControlName="logradouro">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label" for="numero">Numero</label>
+            <div class="col">
+              <input class="form-control" type="text" id="numero" name="numero" formControlName="numero">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label" for="bairro">Bairro</label>
+            <div class="col">
+              <input class="form-control" type="text" id="bairro" name="bairro" formControlName="bairro">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label" for="cep">Cep</label>
+            <div class="col">
+              <input class="form-control" type="text" id="cep" name="cep" formControlName="cep">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label" for="estado">Estado</label>
+            <div class="col">
+              <input class="form-control" type="text" id="estado" name="estado" formControlName="estado">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label" for="cidade">Cidade</label>
+            <div class="col">
+              <input class="form-control" type="text" id="cidade" name="cidade" formControlName="cidade">
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-1">
+              <span>Endereços:</span>
+            </div>
+            <div class="col-4">
+               <button type="button" class="ml-5 btn-sm btn-primary" (click)="addEndereco()">+ Endereco</button>
+            </div>
+          </div>
+          <ul>
+            <li class="m-2" *ngFor="let endereco of enderecos; let i = index">{{endereco.logradouro}}
+              {{endereco.numero}} {{endereco.bairro}}
+              {{endereco.cep}} {{endereco.cidade}} {{endereco.estado}} <button type="button" class="btn-sm btn-danger"
+                (click)="removeEndereco(i)">-</button></li>
+          </ul>
         </div>
       </div>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label" for="numero">Numero</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" id="numero" name="numero" formControlName="numero">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label" for="bairro">Bairro</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" id="bairro" name="bairro" formControlName="bairro">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label" for="cep">Cep</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" id="cep" name="cep" formControlName="cep">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label" for="estado">Estado</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" id="estado" name="estado" formControlName="estado">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label" for="cidade">Cidade</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" id="cidade" name="cidade" formControlName="cidade">
-        </div>
-      </div>
-      <div class="row ml-2">
-        <button class="btn btn-success" type="submit">Salvar</button>
-      </div>
+      <hr>
+    </div>
+    <div class="row">
+      <button class="btn btn-success" type="submit">Finalizar</button>
     </div>
   </form>
 </div>

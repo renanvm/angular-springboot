@@ -29,13 +29,15 @@ export class PessoaAddComponent implements OnInit {
 
   alert: boolean;
   msgAlert: string;
+  enderecos: Endereco[] = [];
 
   constructor(private pessoaService: PessoaService, private fb: FormBuilder, protected activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ pessoa }) => {
-      this.updateForm(pessoa);
+      this.updateForm(pessoa)
+      this.enderecos = pessoa.enderecos;
     });
   }
 
@@ -45,7 +47,6 @@ export class PessoaAddComponent implements OnInit {
       id: this.pessoaForm.get(['id']).value,
       nome: this.pessoaForm.get(['nome']).value,
       email: this.pessoaForm.get(['email']).value,
-      enderecos: []
     };
   }
 
@@ -67,33 +68,43 @@ export class PessoaAddComponent implements OnInit {
       id: pessoa.id,
       nome: pessoa.nome,
       email: pessoa.email,
+    });
+  }
+
+  cleanForm() {
+    this.pessoaForm.patchValue({
+      id: [],
+      nome: [],
+      email: [],
       endereco: {
-        id: pessoa.enderecos[0].id,
-        logradouro: pessoa.enderecos[0].logradouro,
-        numero: pessoa.enderecos[0].numero,
-        bairro: pessoa.enderecos[0].bairro,
-        cep: pessoa.enderecos[0].cep,
-        estado: pessoa.enderecos[0].estado,
-        cidade: pessoa.enderecos[0].cidade,
+        id: [],
+        logradouro: [],
+        numero: [],
+        bairro: [],
+        cep: [],
+        estado: [],
+        cidade: [],
       }
     });
   }
 
   public save(): any {
     const pessoa = this.createFromPessoaForm();
-    const endereco = this.createEnderecoFromForm();
-    pessoa.enderecos.push(endereco);
+    pessoa.enderecos = this.enderecos;
     if (pessoa.id) {
       this.pessoaService.update(pessoa).subscribe(res => {
         this.showAlert("Pessoa atualizada com sucesso!");
+        this.cleanForm();
+        this.enderecos = [];
       });
     } else {
       this.pessoaService.create(pessoa).subscribe(res => {
         this.showAlert("Pessoa cadastrada com sucesso!")
+        this.cleanForm();
+        this.enderecos = [];
       });
     }
   }
-
 
   showAlert(message: string) {
     this.msgAlert = message;
@@ -102,4 +113,16 @@ export class PessoaAddComponent implements OnInit {
       this.alert = false;
     }, 3000);
   }
+
+  addEndereco() {
+    const endereco = this.createEnderecoFromForm();
+    this.enderecos.push(endereco);
+  }
+
+  removeEndereco(index) {
+    this.enderecos = this.enderecos.filter((endereco, i) => {
+      return i != index
+    })
+  }
+
 }

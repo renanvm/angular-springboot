@@ -64,19 +64,20 @@
         </div>
         <div class="col-6">
           <div class="row">
-            <div class="col-1">
-              <span>Endereços:</span>
-            </div>
-            <div class="col-4">
-               <button type="button" class="ml-5 btn-sm btn-primary" (click)="addEndereco()">+ Endereco</button>
+            <div class="col-4 mt-1 mb-5">
+              <button type="button" class="ml-5 btn-sm btn-primary" (click)="addEndereco()">+ Endereco</button>
             </div>
           </div>
-          <ul>
-            <li class="m-2" *ngFor="let endereco of enderecos; let i = index">{{endereco.logradouro}}
-              {{endereco.numero}} {{endereco.bairro}}
-              {{endereco.cep}} {{endereco.cidade}} {{endereco.estado}} <button type="button" class="btn-sm btn-danger"
-                (click)="removeEndereco(i)">-</button></li>
-          </ul>
+          <div class="row">
+            <div class="col-6">
+              <ul [ngStyle]="{'list-style': 'none', 'display': 'flex', 'align-items': 'center'}">
+                <li class="mt-6 ml-2" *ngFor="let endereco of enderecos; let i = index">{{endereco.logradouro}}
+                  {{endereco.numero}} {{endereco.bairro}}
+                  {{endereco.cep}} {{endereco.cidade}} {{endereco.estado}} <button type="button"
+                    class="btn-sm btn-danger" (click)="removeEndereco(i)">-</button></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
       <hr>

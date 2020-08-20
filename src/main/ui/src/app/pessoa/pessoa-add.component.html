@@ -24,7 +24,7 @@
     <hr>
     <div formGroupName="endereco">
       <div class="row">
-        <div class="col-4">
+        <div class="content-left col-4">
           <div class="form-group row">
             <label class="col col-form-label" for="logradouro">Logradouro</label>
             <div class="col">
@@ -64,19 +64,17 @@
         </div>
         <div class="col-6">
           <div class="row">
-            <div class="col-4 mt-1 mb-5">
-              <button type="button" class="ml-5 btn-sm btn-primary" (click)="addEndereco()">+ Endereco</button>
+            <div class="col-offset-1 mt-1 mb-4">
+              <button [disabled]="!pessoaForm.get(['endereco']).get(['logradouro']).value" type="button" class="ml-3 btn-sm btn-primary" (click)="addEndereco()">+ Endereco</button>
             </div>
           </div>
           <div class="row">
-            <div class="col-6">
-              <ul [ngStyle]="{'list-style': 'none', 'display': 'flex', 'align-items': 'center'}">
-                <li class="mt-6 ml-2" *ngFor="let endereco of enderecos; let i = index">{{endereco.logradouro}}
-                  {{endereco.numero}} {{endereco.bairro}}
-                  {{endereco.cep}} {{endereco.cidade}} {{endereco.estado}} <button type="button"
-                    class="btn-sm btn-danger" (click)="removeEndereco(i)">-</button></li>
-              </ul>
-            </div>
+            <ul [ngStyle]="{'list-style': 'none', 'display': 'flex', 'align-items': 'center'}">
+              <li class="mt-6 ml-2" *ngFor="let endereco of enderecos; let i = index">{{endereco.logradouro}}
+                {{endereco.numero}} {{endereco.bairro}}
+                {{endereco.cep}} {{endereco.cidade}} {{endereco.estado}} <button type="button" class="btn-sm btn-danger"
+                  (click)="removeEndereco(i)">-</button></li>
+            </ul>
           </div>
         </div>
       </div>
